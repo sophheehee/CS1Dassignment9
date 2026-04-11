@@ -1,0 +1,100 @@
+************************************************************************************
+* Author     : Aiman Pashtun                                                       *
+* Class      : CS1D - Data Structures                                              *
+* Assignment : #9 - DFS and BFS                                                    *
+* Part       : B                                                                   *
+* Due Date   : 04/13/2026                                                          *
+************************************************************************************
+
+
+******************************* ADJACENCY MATRIX *******************************
+
+         SEA    SF    LA   DEN   CHI    KC   DAL   HOU   ATL   MIA    NY   BOS
+   SEA     0   807     -  1331  2097     -     -     -     -     -     -     -
+    SF   807     0   381  1267     -     -     -     -     -     -     -     -
+    LA     -   381     0  1015     -  1663  1435     -     -     -     -     -
+   DEN  1331  1267  1015     0  1003   599     -     -     -     -     -     -
+   CHI  2097     -     -  1003     0   533     -     -     -     -   787   983
+    KC     -     -  1663   599   533     0   496     -   864     -  1260     -
+   DAL     -     -  1435     -     -   496     0   239   781     -     -     -
+   HOU     -     -     -     -     -     -   239     0   810  1187     -     -
+   ATL     -     -     -     -     -   864   781   810     0   661   888     -
+   MIA     -     -     -     -     -     -     -  1187   661     0     -     -
+    NY     -     -     -     -   787  1260     -     -   888     -     0   214
+   BOS     -     -     -     -   983     -     -     -     -     -   214     0
+
+City abbreviations:
+SEA = Seattle, SF = San Francisco, LA = Los Angeles, DEN = Denver
+CHI = Chicago, KC = Kansas City,   DAL = Dallas,     HOU = Houston
+ATL = Atlanta, MIA = Miami,        NY = New York,    BOS = Boston
+
+
+
+******************************* BFS TRAVERSAL *******************************
+Starting Vertex: Dallas
+
+-------------------- Level 0 --------------------
+Cities in this level: Dallas
+
+From Dallas:
+   Discovery Edge -> Dallas -> Houston
+   Discovery Edge -> Dallas -> Kansas City
+   Discovery Edge -> Dallas -> Atlanta
+   Discovery Edge -> Dallas -> Los Angeles
+
+-------------------- Level 1 --------------------
+Cities in this level: Houston, Kansas City, Atlanta, Los Angeles
+
+From Houston:
+   Cross Edge     -> Houston -> Atlanta
+   Discovery Edge -> Houston -> Miami
+
+From Kansas City:
+   Discovery Edge -> Kansas City -> Chicago
+   Discovery Edge -> Kansas City -> Denver
+   Cross Edge     -> Kansas City -> Atlanta
+   Discovery Edge -> Kansas City -> New York
+   Cross Edge     -> Kansas City -> Los Angeles
+
+From Atlanta:
+   Cross Edge     -> Atlanta -> Miami
+   Cross Edge     -> Atlanta -> New York
+
+From Los Angeles:
+   Discovery Edge -> Los Angeles -> San Francisco
+   Cross Edge     -> Los Angeles -> Denver
+
+-------------------- Level 2 --------------------
+Cities in this level: Miami, Chicago, Denver, New York, San Francisco
+
+From Miami:
+
+From Chicago:
+   Cross Edge     -> Chicago -> New York
+   Discovery Edge -> Chicago -> Boston
+   Cross Edge     -> Chicago -> Denver
+   Discovery Edge -> Chicago -> Seattle
+
+From Denver:
+   Cross Edge     -> Denver -> San Francisco
+   Cross Edge     -> Denver -> Seattle
+
+From New York:
+   Cross Edge     -> New York -> Boston
+
+From San Francisco:
+   Cross Edge     -> San Francisco -> Seattle
+
+-------------------- Level 3 --------------------
+Cities in this level: Boston, Seattle
+
+From Boston:
+
+From Seattle:
+
+--------------------------------------------------
+Total Distance on Discovery Edges: 9991 miles
+
+C:\Users\Aiman Pashtun\source\repos\CS1D-HW9-PARTB\x64\Debug\CS1D-HW9-PARTB.exe (process 29028) exited with code 0 (0x0).
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .
