@@ -71,7 +71,7 @@ void AdjGraph::printAdjList() {
 void AdjGraph::dfsHelp(int current) {
    visited[current]= true;
 
-   for (int i = 0; i < adj[current].size(); i++) {
+   for (int i = 0; i < adjList[current].size(); i++) {
      int neighbor =adjList[current][i].city;
      int weight = adjList[current][i].weight;
 
@@ -97,3 +97,4 @@ void AdjGraph::dfsHelp(int current) {
 
    }
  }
+}
