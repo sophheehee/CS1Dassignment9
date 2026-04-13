@@ -17,8 +17,7 @@ class AdjGraph{
   private:
     //keeps track of distance
     int totalDistance;
-    //constant for citites
-    static const int NUM_CITY = 12;
+
         //hold city name and distance
        struct Edge {
          int city; // goes by the enum index
@@ -43,8 +42,10 @@ class AdjGraph{
 
 
   public:
+    // number of cities
+  static const int NUM_CITY = 12;
     //constructor for graph
-    adjGraph();
+    AdjGraph();
 
     //adds an edge
     void addEdge(int u, int v, int w);
