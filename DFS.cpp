@@ -26,7 +26,7 @@
 
  //for sorting
  bool compareEdge(AdjGraph::Edge a, AdjGraph::Edge b){
-   return a.weight > b.weight;
+   return a.weight < b.weight;
  }
 
  void AdjGraph::sortAdjList(){
@@ -35,12 +35,23 @@
    }
  }
 
+ //print
+void AdjGraph::printAdjList() {
+   for (int i = 0; i < NUM_CITY; i++) {
+     cout << cities[i] << ": ";
+     for (int j = 0; j < adjList[i].size(); j++) {
+       cout << "(" << cities[adjList[i][j].city]
+            << ", " << adjList[i][j].weight << ") ";
+     }
+     cout << endl;
+   }
+ }
  // dfs
  void AdjGraph::dfs(int start){
    // reset the visit and print
-   for (int i = 0; i < NUM_CITIES; i++) {
+   for (int i = 0; i < NUM_CITY; i++) {
      visited[i] = false;
-     for (int j = 0; j < NUM_CITIES; j++) {
+     for (int j = 0; j < NUM_CITY; j++) {
        printed[i][j] = false;
      }
    }
@@ -50,7 +61,7 @@
          << totalDistance << endl;
  }
 
-void AdjGraph::dfsHelper(int current) {
+void AdjGraph::dfsHelp(int current) {
    visited[current]= true;
 
    for (int i = 0; i < adj[current].size(); i++) {
@@ -66,7 +77,7 @@ void AdjGraph::dfsHelper(int current) {
          printed[neighbor][current] = true;
        }
        totalDistance += weight;
-       dfsHelper(neighbor);
+       dfsHelp(neighbor);
      }
      else { // back edge
        if (!printed[current][neighbor]) {

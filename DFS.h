@@ -17,7 +17,8 @@ class AdjGraph{
   private:
     //keeps track of distance
     int totalDistance;
-
+    //constant for citites
+    static const int NUM_CITY = 12;
         //hold city name and distance
        struct Edge {
          int city; // goes by the enum index
@@ -34,8 +35,7 @@ class AdjGraph{
        "Kansas City", "Chicago", "Boston", "New York",
        "Atlanta", "Miami", "Dallas", "Houston"};
 
-       //constant for citites
-       static const int NUM_CITY = 12;
+
 
        //helper for initializing DFS
        void dfsHelp(int current);
