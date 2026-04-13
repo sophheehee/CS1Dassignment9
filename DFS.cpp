@@ -24,16 +24,23 @@
      adjList[v].push_back({u, w});
  }
 
- //for sorting
- bool compareEdge(AdjGraph::Edge a, AdjGraph::Edge b){
-   return a.weight < b.weight;
- }
 
+ // sorting with bubble sort
  void AdjGraph::sortAdjList(){
    for(int i = 0; i < NUM_CITY; i++){
-     sort(adjList[i].begin(), adjList[i].end(), compareEdge);
+     for(int j =0; j < adjList[i].size(); j++){
+       for(int k =j+1; k < adjList[i].size(); k++){
+         if(adjList[i][j].weight > adjList[i][k].weight){
+           Edge temp = adjList[i][j];
+           adjList[i][j] = adjList[i][k];
+           adjList[i][k] = temp;
+         }
+
+       }
+     }
    }
  }
+
 
  //print
 void AdjGraph::printAdjList() {
@@ -65,13 +72,13 @@ void AdjGraph::dfsHelp(int current) {
    visited[current]= true;
 
    for (int i = 0; i < adj[current].size(); i++) {
-     int neighbor =adj[current][i].city;
-     int weight = adj[current][i].weight;
+     int neighbor =adjList[current][i].city;
+     int weight = adjList[current][i].weight;
 
      if (!visited[neighbor]) {
        if (!printed[current][neighbor]) { //discovery edge
-         cout << cityNames[current] << " -> "
-            << cityNames[neighbor] << " (Discovery Edge)" << endl;
+         cout << cities[current] << " -> "
+            << cities[neighbor] << " (Discovery Edge)" << endl;
 
          printed[current][neighbor] = true;
          printed[neighbor][current] = true;
@@ -81,12 +88,12 @@ void AdjGraph::dfsHelp(int current) {
      }
      else { // back edge
        if (!printed[current][neighbor]) {
-         cout << cityNames[current] << " -> "
-             << cityNames[neighbor] << " (Back Edge)" << endl;
+         cout << cities[current] << " -> "
+             << cities[neighbor] << " (Back Edge)" << endl;
 
          printed[current][neighbor] = true;
          printed[neighbor][current] = true;
        }
-     }
+
    }
  }

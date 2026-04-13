@@ -10,11 +10,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
 using namespace std;
 
 class AdjGraph{
   private:
+    // number of cities
+  static const int NUM_CITY = 12;
     //keeps track of distance
     int totalDistance;
 
@@ -42,8 +43,7 @@ class AdjGraph{
 
 
   public:
-    // number of cities
-  static const int NUM_CITY = 12;
+
     //constructor for graph
     AdjGraph();
 
