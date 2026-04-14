@@ -61,7 +61,7 @@ int main() {
     //total should be like 7314 miles
     g.sortAdjList();
     g.dfs(10); //starts at dallas
-    g.printAdjList();
+    //g.printAdjList();
     return 0;
 
 

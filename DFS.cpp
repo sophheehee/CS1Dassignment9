@@ -42,17 +42,17 @@
  }
 
 
- //print
-void AdjGraph::printAdjList() {
-   for (int i = 0; i < NUM_CITY; i++) {
-     cout << cities[i] << ": ";
-     for (int j = 0; j < adjList[i].size(); j++) {
-       cout << "(" << cities[adjList[i][j].city]
-            << ", " << adjList[i][j].weight << ") ";
-     }
-     cout << endl;
-   }
- }
+//  //print
+// void AdjGraph::printAdjList() {
+//    for (int i = 0; i < NUM_CITY; i++) {
+//      cout << cities[i] << ": ";
+//      for (int j = 0; j < adjList[i].size(); j++) {
+//        cout << "(" << cities[adjList[i][j].city]
+//             << ", " << adjList[i][j].weight << ") ";
+//      }
+//      cout << endl;
+//    }
+//  }
  // dfs
  void AdjGraph::dfs(int start){
    // reset the visit and print
@@ -66,6 +66,7 @@ void AdjGraph::printAdjList() {
    dfsHelp(start); // actual traversal  here
    cout << "\nTotal Discovery Distance: "
          << totalDistance << endl;
+    cout << "\n\n";     
  }
 
 void AdjGraph::dfsHelp(int current) {

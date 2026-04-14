@@ -1,0 +1,27 @@
+DFS TRAVERSAL OUTPUT 
+
+
+Dallas -> Houston (Discovery Edge)
+Houston -> Atlanta (Discovery Edge)
+Atlanta -> Miami (Discovery Edge)
+Miami -> Houston (Back Edge)
+Atlanta -> Dallas (Back Edge)
+Atlanta -> Kansas City (Discovery Edge)
+Kansas City -> Dallas (Back Edge)
+Kansas City -> Chicago (Discovery Edge)
+Chicago -> New York (Discovery Edge)
+New York -> Boston (Discovery Edge)
+Boston -> Chicago (Back Edge)
+New York -> Atlanta (Back Edge)
+New York -> Kansas City (Back Edge)
+Chicago -> Denver (Discovery Edge)
+Denver -> Kansas City (Back Edge)
+Denver -> Los Angeles (Discovery Edge)
+Los Angeles -> San Francisco (Discovery Edge)
+San Francisco -> Seattle (Discovery Edge)
+Seattle -> Denver (Back Edge)
+San Francisco -> Denver (Back Edge)
+Los Angeles -> Dallas (Back Edge)
+Los Angeles -> Kansas City (Back Edge)
+
+Total Discovery Distance: 7314
